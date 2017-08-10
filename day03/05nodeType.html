@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p id="test">hello world</p>
+<script>
+    var p = document.getElementById("test");
+    var attr=p.getAttributeNode("id");
+    console.log(attr.nodeType);
+</script>
+</body>
+</html>

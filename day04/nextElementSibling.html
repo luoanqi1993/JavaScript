@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li id="one">1</li>
+    <li id="two">2</li>
+    <li>3</li>
+</ul>
+<script>
+    var one = document.getElementById("one");
+    var p = document.createElement("p");
+    var text = document.createTextNode("hello");
+    p.appendChild(text);
+
+    insertAfter(p,one);
+
+    function insertAfter(newElement,targetElement){
+//        得到目标元素的父节点
+        var parent = targetElement.parentNode;
+//        如果目标元素是 parent 最后一个就直接添加新元素
+        if(parent.lastChild == targetElement){
+            parent.appendChild(newElement);
+//            否则，就在 parent 前面的兄弟之后添加新元素
+        }else{
+            parent.insertBefore(newElement,targetElement.nextElementSibling);
+        }
+    }
+
+</script>
+</body>
+</html>

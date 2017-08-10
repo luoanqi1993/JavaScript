@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>图片库</h1>
+<ul id="imageGallery">
+    <li>
+        <a href="images/image_1.png" title="01">第一张</a>
+    </li>
+    <li>
+        <a href="images/image_2.png" title="02">第二张</a>
+    </li>
+    <li>
+        <a href="images/image_3.png" title="03">第三张</a>
+    </li>
+    <li>
+        <a href="images/image_4.png" title="04">第四张</a>
+    </li>
+</ul>
+<!--<img src="images/dizhi_1.png" alt="占位符" id="placeholder"/>-->
+<!--<p id="p">换掉我</p>-->
+</body>
+
+<script>
+    var placeholder = document.createElement("img");
+    placeholder.setAttribute("id","placeholder");
+    placeholder.setAttribute("src","images/dizhi_1.png");
+    placeholder.setAttribute("alt","占位符");
+    var p = document.createElement("p");
+    p.setAttribute("id","p");
+    var text = document.createTextNode("换掉我");
+    p.appendChild(text);
+
+    var body = document.getElementsByTagName("body")[0];
+    body.appendChild(placeholder);
+    body.appendChild(p);
+
+    function show(pic){
+        var href = pic.getAttribute("href");
+        var placeholder = document.getElementById("placeholder");
+        placeholder.setAttribute("src",href);
+        var title = pic.getAttribute("title");
+        var p = document.getElementById("p");
+        p.firstChild.nodeValue=title;
+    }
+
+
+    function prepareGallery(){
+        var imageGallery = document.getElementById("imageGallery");
+        var li = imageGallery.getElementsByTagName("a");
+        for(var i=0;i<li.length;i++){
+            li[i].onclick = function(){
+                show(this);
+                return false;
+            }
+        }
+    }
+    prepareGallery();
+
+
+</script>
+
+</html>

@@ -1,0 +1,83 @@
+*{margin: 0;padding: 0;}
+a{text-decoration: none;color:#333;}
+body{ color:#fb5;font-family:Helvetica,Microsoft YaHei;
+  background-color: #334;
+}
+li{list-style: none;}
+.top{
+  background:url("../images/banner_3.png") no-repeat bottom right ;
+  width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  height: 500px;
+}
+.top img{
+  position: absolute;
+  left: -120px;
+}
+.nav{
+  background-color: #789;
+}
+header{
+  width: 1000px;
+  margin-left:auto;margin-right: auto;
+}
+header nav ul{
+  border-color: #99a;
+  text-align: center;
+}
+header nav ul:after{
+  content: "";
+  display: table;
+  clear: both;
+}
+nav ul li{
+  float: left;
+  line-height: 40px;
+  width: 20%;
+}
+nav ul li a{
+  color: white;
+  display: block;
+  border-right: 2px solid #667;
+}
+nav ul li:first-child a{
+  border-left: 2px solid #667;
+}
+.text{
+  background-color: #edc;
+  height: 410px;
+}
+.text:before{
+  content: "";
+  display: table;
+}
+article{
+  margin-top: 30px;
+  width: 1000px;
+  margin-left:auto;margin-right: auto;
+}
+article h1{
+  line-height: 60px;
+  font-size: 40px;
+}
+article p {
+  line-height: 30px;
+}
+a:link{
+  color: #445;
+  background-color: #eb6;
+}
+a:visited{
+  color: #345;
+  background-color: #eb6;
+}
+a:hover{
+  color: #667;
+  background-color: #fb5;
+}
+a:active{
+  color: #778;
+  background-color: #ec8;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text" id="input"/>
+<script>
+    var input = document.getElementById("input");
+    /*onfocus获取焦点*/
+    input.onfocus=function(){
+        this.style.backgroundColor="pink";
+    };
+    /*onblur移除焦点*/
+    input.onblur=function(){
+        this.style.backgroundColor="red";
+    }
+</script>
+</body>
+</html>

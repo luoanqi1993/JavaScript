@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<button id="btn">点我</button>
+<p id="p1">000</p>
+<script>
+    var i=[1,2,60,8,40,3,4,5];
+    var btn = document.getElementById("btn");
+    var p1 = document.getElementById("p1");
+    btn.onclick = function(){
+//        i.reverse();
+//        顺序反转
+//        i.sort();
+//        按首字母排序，
+        i.sort(function sortNumber(a,b){return a-b});
+//        按数字大小
+        p1.firstChild.nodeValue=i;
+    };
+
+</script>
+</body>
+</html>

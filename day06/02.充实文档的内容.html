@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-family: "Helvetica";
+            font-size: 14px;
+        }
+        abbr{
+            text-decoration: none;
+            font-style: normal;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="01.index.html" accesskey="1">Home</a></li>
+    <li><a href="demo.html" accesskey="4">Search</a></li>
+    <li><a href="demo02.html" accesskey="9">Contact</a></li>
+</ul>
+<h1>What is the Document Object Model?</h1>
+<p>the <abbr title="Word Wide Web Consortium">W3C</abbr> defines
+    the <abbr title="Document Object Model">DOM</abbr> as:</p>
+<blockquote cite="http://www.w3.org/DOM/">
+    <p>Lorem ipsumdolor sit amet, consectetur adipisicing elit.
+        Ab assumenda cumque deserunt doloremque dolores dolorum fuga fugiat ipsalaboriosam
+        maiores natus neque odit optio perferendis quasi repudiandae voluptate voluptates, voluptatum.</p>
+</blockquote>
+<p>Lorem ipsum dolor <abbr title="Application Programming Interface">API</abbr> sit amet, consectetur adipisicing
+    elit. Consequuntur enim <abbr title="HyperText Markup Language">HTML</abbr> and
+    <abbr title="extensible Markup Language">XML</abbr>excepturiincidunt pariatur praesentium rerum sapiente!</p>
+
+</body>
+<script>
+/*1.获取所有的abbr标签
+2.在body添加一个h2标签Abbreviations
+3.在body里添加一个dl
+4.dt里面放入abbr标签的值，dd里面放入abbr标签的属性
+* */
+    function displayAbbreviation(){
+//        取得所有缩略词
+        var abbreviations = document.getElementsByTagName("abbr");
+        if(abbreviations.length<1){return false}
+        var defs = new Array();
+//        遍历这些缩略词
+        for(var i=0;i<abbreviations.length;i++){
+
+            var current_abbr = abbreviations[i];
+            if(current_abbr.childNodes.length<1)continue;
+
+            var definition = abbreviations[i].getAttribute("title");
+            var key = abbreviations[i].innerHTML;
+            defs[key]=definition;
+        }
+        console.log(defs);
+//        创建定义列表
+        var dl  = document.createElement("dl");
+//        遍历定义
+        for(key in defs){
+            var def=defs[key];
+//        创建定义标题
+            var dt = document.createElement("dt");
+            var dt_txt = document.createTextNode(key);
+            dt.appendChild(dt_txt);
+//        创建定义描述
+            var dd=document.createElement("dd");
+            var dd_txt = document.createTextNode(def);
+            dd.appendChild(dd_txt);
+//        把它们添加到定义列表
+            dl.appendChild(dt);
+            dl.appendChild(dd);
+        }
+        if(dl.childNodes.length<1)return false;
+//       创建标题
+        var header = document.createElement("h2");
+        var h_txt = document.createTextNode("Abbreviations");
+        header.appendChild(h_txt);
+//       把标题和定义列表添加到页面
+        document.body.appendChild(header);
+        document.body.appendChild(dl);
+
+    }
+    displayAbbreviation();
+
+/*1.向p标签的末尾添加一个sup标签,
+2.sup标签包含a标签
+3.a标签的href属性等于blockquote标签cite的属性
+4.a标签的文本节点是source
+* */
+    function displayCitations(){
+//        取得所有引用
+        var quotes = document.getElementsByTagName("blockquote");
+//        遍历引用
+        for(var i=0;i<quotes.length;i++){
+//        如果没有 cite 属性，继续循环
+            if(!quotes[i].getAttribute("cite"))continue;
+//        保存 cite 属性
+            var url = quotes[i].getAttribute("cite");
+//        取得引用中的所有元素节点
+            var quoteChildren = quotes[i].getElementsByTagName("*");
+//        如果没有元素节点，继续循环
+            if(quoteChildren.length<1)continue;
+//        取得引用中的最后一个元素节点
+            var elem = quoteChildren[quoteChildren.length - 1];
+//        创建标记
+            var link = document.createElement("a");
+            var link_text = document.createTextNode("source");
+            link.appendChild(link_text);
+
+            link.setAttribute("href",url);
+
+            var superscript = document.createElement("sup");
+            superscript.appendChild(link);
+//        把标记添加到引用中的最后一个元素节点
+            elem.appendChild(superscript);
+        }
+    }
+    displayCitations();
+/*
+1.获取所有包含accesskey属性的a标签
+2.向body的尾部添加一个h3标签，内容为Accesskeys
+3.向body的尾部添加一个ul
+4.li存a标签的属性和innerHTML
+* */
+    function displayAccesskeys(){
+//     取得文档中的所有连接
+        var links = document.getElementsByTagName("a");
+//     创建一个空数组，保存访问键
+        var akeys = new Array();
+//     遍历连接
+        for(var i=0;i<links.length;i++){
+            var current_link = links[i];
+//      如果没有 accesskey 属性，继续循环
+            if(!current_link.getAttribute("accesskey"))continue;
+//      取得 accesskey 的值
+            var key = current_link.getAttribute("accesskey");
+//      取得链接文本
+            var text = current_link.lastChild.nodeValue;
+//      添加到数组
+            akeys[key] = text;
+        }
+//      创建列表
+        var list = document.createElement("ul");
+        for(key in akeys){
+            var txt = akeys[key];
+//       创建放到列表项中的字符串
+            var str = key + ":" + txt;
+//       创建列表项
+            var li = document.createElement("li");
+            var li_text = document.createTextNode(str);
+            li.appendChild(li_text);
+            list.appendChild(li);
+        }
+//       创建标题
+        var header = document.createElement("h3");
+        var header_text = document.createTextNode("Accesskeys");
+        header.appendChild(header_text);
+//       把标题和列表放入页面
+        document.body.appendChild(header);
+        document.body.appendChild(list);
+    }
+    displayAccesskeys();
+</script>
+</html>

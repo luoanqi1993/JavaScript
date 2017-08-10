@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p>hello world</p>
+<a href="#" id="a">我是谁</a> <br/>
+<button id="btn">btn</button>
+
+<!--添加元素-->
+<script>
+    var a = document.getElementById("a");
+    var btn = document.getElementById("btn");
+    var p = document.createElement("p");
+    var text = document.createTextNode("我在哪里");
+    p.appendChild(text);
+    btn.onclick = function(){
+        this.parentNode.insertBefore(p,a);
+    }
+</script>
+
+<!--删除元素-->
+<!--<script>-->
+    <!--var a = document.getElementById("a");-->
+    <!--var btn = document.getElementById("btn");-->
+    <!--btn.onclick = function(){-->
+        <!--this.parentNode.removeChild(a);-->
+    <!--}-->
+<!--</script>-->
+
+<!--替换元素-->
+<!--<script>-->
+    <!--var a = document.getElementById("a");-->
+    <!--var btn = document.getElementById("btn");-->
+    <!--var span = document.createElement("span");-->
+    <!--var text = document.createTextNode("安琪");-->
+    <!--span.appendChild(text);-->
+    <!--btn.onclick = function(){-->
+        <!--this.parentNode.replaceChild(span,a);-->
+    <!--}-->
+<!--</script>-->
+</body>
+</html>

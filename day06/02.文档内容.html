@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{
+            font-family: "Helvetica";
+            font-size: 14px;
+        }
+        abbr{
+            text-decoration: none;
+            font-style: normal;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="01.index.html" accesskey="1">Home</a></li>
+    <li><a href="demo.html" accesskey="4">Search</a></li>
+    <li><a href="demo02.html" accesskey="9">Contact</a></li>
+</ul>
+<h1>What is the Document Object Model?</h1>
+<p>the <abbr title="Word Wide Web Consortium">W3C</abbr> defines
+    the <abbr title="Document Object Model">DOM</abbr> as:</p>
+<blockquote cite="http://www.w3.org/DOM/">
+    <p>Lorem ipsumdolor sit amet, consectetur adipisicing elit.
+        Ab assumenda cumque deserunt doloremque dolores dolorum fuga fugiat ipsalaboriosam
+        maiores natus neque odit optio perferendis quasi repudiandae voluptate voluptates, voluptatum.</p>
+</blockquote>
+<p>Lorem ipsum dolor <abbr title="Application Programming Interface">API</abbr> sit amet, consectetur adipisicing
+    elit. Consequuntur enim <abbr title="HyperText Markup Language">HTML</abbr> and
+    <abbr title="extensible Markup Language">XML</abbr>excepturiincidunt pariatur praesentium rerum sapiente!</p>
+</body>
+<script>
+    function styleOne(){
+        var abbr = document.getElementsByTagName("abbr");
+        if(abbr.length<1)return false;
+        var arr = new Array();
+        for(var i=0;i<abbr.length;i++){
+            var text = abbr[i];
+            if(text.childNodes.length<1)continue;
+            var title = text.getAttribute("title");
+            var key = text.innerHTML;
+            arr[key]=title;
+        }
+        var dl = document.createElement("dl");
+        for(key in arr){
+            var txt = arr[key];
+            var dt = document.createElement("dt");
+            var dt_text = document.createTextNode(key);
+            dt.appendChild(dt_text);
+            var dd = document.createElement("dd");
+            var dd_text = document.createTextNode(txt);
+            dd.appendChild(dd_text);
+            dl.appendChild(dt);
+            dl.appendChild(dd);
+        }
+        var h = document.createElement("h2");
+        var h_text = document.createTextNode("Abbreviations");
+        h.appendChild(h_text);
+
+        document.body.appendChild(h);
+        document.body.appendChild(dl);
+    }
+    styleOne();
+
+    function styleTwo(){
+        var block = document.getElementsByTagName("blockquote");
+        for(var i=0;i<block.length;i++){
+            if(!block[i].getAttribute("cite"))continue;
+            var url = block[i].getAttribute("cite");
+            var blocks = block[i].getElementsByTagName("*");
+            if(blocks.length<1)continue;
+            var elem = blocks[blocks.length - 1];
+            var a = document.createElement("a");
+            var a_text = document.createTextNode("source");
+            a.setAttribute("href",url);
+            a.appendChild(a_text);
+
+            var sup = document.createElement("sup");
+            sup.appendChild(a);
+            elem.appendChild(sup);
+        }
+    }
+    styleTwo();
+
+    function styleThree(){
+        var a = document.getElementsByTagName("a");
+        var arr = new Array();
+        for(var i=0;i< a.length;i++){
+            var link = a[i];
+            if(!link.getAttribute("accesskey"))continue;
+            var key = link.getAttribute("accesskey");
+            var text = link.innerHTML;
+            arr[key]=text;
+        }
+        var ul = document.createElement("ul");
+        for(key in arr){
+            var txt = arr[key];
+            var str = key + ":" + txt
+            var li = document.createElement("li");
+            var li_text = document.createTextNode(str);
+            li.appendChild(li_text);
+            ul.appendChild(li);
+        }
+        var h = document.createElement("h3");
+        var h_text = document.createTextNode("Accesskeys");
+        h.appendChild(h_text);
+
+        document.body.appendChild(h);
+        document.body.appendChild(ul);
+    }
+    styleThree();
+</script>
+</html>

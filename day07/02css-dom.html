@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Hold the front page</h1>
+<p>This first paragraph leads you in.</p>
+<p>Ab assumenda cumque deserunt doloremque.</p>
+<p>Maiores natus neque odit optio perferendis.</p>
+<h1>Extra! Extra!</h1>
+<p>Consectetur adipisicing elit.</p>
+<p>Praesentium rerum sapiente!</p>
+</body>
+<script>
+    function style(){
+        var headers = document.getElementsByTagName("h1");
+        var elem;
+        for(key in headers){
+            elem = headers[key].nextElementSibling;
+            elem.style.fontWeight = "bold";
+            elem.style.color = "pink";
+        }
+    }
+    style();
+</script>
+</html>

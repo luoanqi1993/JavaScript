@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script src="js/base.js"></script>
+    <title></title>
+    <style>
+        .intro{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<h1>Man bites dog</h1>
+<p class="disclaimer">This is not a true story</p>
+<table>
+    <caption>Itineray</caption>
+    <thead>
+    <tr>
+        <th>when</th>
+        <th>where</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>June 9th</td>
+        <td>Portland, <abbr title="Oregon">OR</abbr></td>
+    </tr>
+    <tr>
+        <td>June 10th</td>
+        <td>Seattle, <abbr title="Washington">WA</abbr></td>
+    </tr>
+    <tr>
+        <td>June 12th</td>
+        <td>Sacramento, <abbr title="California">CA</abbr></td>
+    </tr>
+
+    </tbody>
+</table>
+<script>
+    styleHeaderSiblings();
+    function stripeTables(){
+        var tables = document.getElementsByTagName("table");
+        var rows;
+        for( key in tables){
+            rows=tables[key].getElementsByTagName("tr");
+            for( k in rows){
+                    rows[k].onmouseover=function(){
+                        this.style.fontWeight="bold";
+                    };
+                    rows[k].onmouseout=function(){
+                        this.style.fontWeight="normal"
+                    }
+
+            }
+        }
+    }
+    stripeTables();
+    function styleHeaderSiblings(){
+        var headers = document.getElementsByTagName("h1");
+        var elem;
+        for(var i=0;i<headers.length;i++){
+            elem=getNextElement(headers[i].nextSibling);
+            console.log(elem);
+            elem.style.fontWeight="bold";
+            elem.className="intro"
+        }
+    }
+    function addClass(element,value){
+        if(!element.className){
+            element.className=value;
+        }else{
+            var newClassName = element.className;
+            newClassName+="";
+            newClassName+=value;
+            element.className=newClassName;
+        }
+    }
+</script>
+</body>
+</html>

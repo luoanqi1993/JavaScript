@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        body{width:1000px}
+        *{
+            margin:0;padding:0
+        }
+        .row:after{
+            content:"";
+            display: table;
+            clear:both;
+        }
+        .center{
+            margin-left:auto;
+            margin-right:auto;
+        }
+        a{text-decoration: none}
+        ul{
+
+            list-style: none;
+        }
+        li{float:left;text-align: center}
+    </style>
+</head>
+<body class="center">
+<h1>图片库</h1>
+<ul class="row" id="imageGallery">
+    <li>
+        <a href="images/image_1.png" title="01" ><img src="images/image_1.png" alt=""/></a>
+    </li>
+    <li>
+        <a href="images/image_2.png" title="02" ><img src="images/image_2.png" alt=""/></a>
+    </li>
+    <li>
+        <a href="images/image_3.png" title="03"><img src="images/image_3.png" alt=""/></a>
+    </li>
+    <li>
+        <a href="images/image_4.png" title="04"><img src="images/image_4.png" alt=""/></a>
+    </li>
+</ul>
+<!--<img src="images/dizhi_1.png" alt="占位符" id="placeholder"/>-->
+<!--<p id="p">换掉我</p>-->
+</body>
+<script>
+    var imageGallery = document.getElementById("imageGallery");
+    var placeholder = document.createElement("img");
+    placeholder.setAttribute("id","placeholder");
+    placeholder.setAttribute("src","images/dizhi_1.png");
+    placeholder.setAttribute("alt","占位符");
+    var p = document.createElement("p");
+    p.setAttribute("id","p");
+    var text = document.createTextNode("换掉我");
+    p.appendChild(text);
+    imageGallery.parentNode.insertBefore(p,imageGallery);
+    /*向body添加p,img*/
+    imageGallery.parentNode.insertBefore(placeholder,p);
+
+    function show(pic){
+        var href = pic.getAttribute("href");
+        var placeholder = document.getElementById("placeholder");
+        placeholder.setAttribute("src",href);
+        var title = pic.getAttribute("title");
+        var p = document.getElementById("p");
+        p.firstChild.nodeValue=title;
+    }
+
+    function prepareGallery(){
+        var li = imageGallery.getElementsByTagName("a");
+        for(var n=0;n<li.length;n++){
+            li[n].onclick = function(){
+                show(this);
+                return false;
+            }
+        }
+    }
+    prepareGallery();
+
+    /*insertAfter*/
+    function insertAfter(newElement,targetElement){
+        var parent = targetElement.parentNode;
+        if(parent.lastChild==targetElement){
+            parent.appendChild(newElement);
+        }else{
+            parent.insertBefore(newElement,targetElement.nextSibling);
+        }
+    }
+
+</script>
+</html>

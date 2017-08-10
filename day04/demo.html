@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Snapshots</h1>
+<ul id="imageGallery">
+    <li>
+        <a href="images/image_1.png" title="01" >01</a>
+    </li>
+    <li>
+        <a href="images/image_2.png" title="02" >02</a>
+    </li>
+    <li>
+        <a href="images/image_3.png" title="03" >03</a>
+    </li>
+    <li>
+        <a href="images/image_4.png" title="04" >04</a>
+    </li>
+</ul>
+
+</body>
+<script>
+    var placeholder = document.createElement("img");
+    placeholder.setAttribute("id","placeholder");
+    placeholder.setAttribute("src","images/dizhi_1.png");
+    placeholder.setAttribute("alt","image");
+    var des = document.createElement("p");
+    des.setAttribute("id","description");
+    var destxt=document.createTextNode("Choose an image");
+    des.appendChild(destxt);
+
+    var body = document.getElementsByTagName("body")[0];
+    body.appendChild(placeholder);
+    body.appendChild(des);
+    function prepareGallery(){
+        var gallery= document.getElementById("imageGallery");
+        var links = gallery.getElementsByTagName("a");
+        for(var i =0;i<links.length;i++){
+            links[i].onclick=function(){
+                showPic(this);
+
+                return false;
+            }
+        }
+    }
+    function showPic(whichpic){
+
+        var source = whichpic.getAttribute("href");
+        var title= whichpic.getAttribute("title");
+
+        var placeholder = document.getElementById("placeholder");
+
+        var des= document.getElementById("description");
+
+        placeholder.setAttribute("src",source);
+
+        des.innerHTML=title;
+
+    }
+    prepareGallery();
+
+</script>
+</html>

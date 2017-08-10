@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="div">
+
+    <p>first</p>
+    <!--<p>hello world</p>-->
+    <p id="one">good</p>
+
+</div>
+<script>
+    var div = document.getElementById("div");
+    var one = document.getElementById("one");
+    /*1.生成p标签*/
+    var p = document.createElement("p");
+    var txt = document.createTextNode("hello world");
+    p.appendChild(txt);
+    console.log(p);
+    div.insertBefore(p,one)
+</script>
+</body>
+</html>

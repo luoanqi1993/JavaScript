@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p>hello world</p>
+<a id="one" href="#">baidu</a> <br/>
+<!--<span>我替换你</span>-->
+<button id="btn">btn</button>
+<script>
+    var btn = document.getElementById("btn");
+    var span = document.createElement("span");
+    var txt = document.createTextNode("我替换你");
+    var one = document.getElementById("one");
+    span.appendChild(txt);
+    btn.onclick=function(){
+        this.parentNode.replaceChild(span,one);
+    }
+</script>
+</body>
+</html>

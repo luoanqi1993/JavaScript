@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="parent">
+    good
+</div>
+<script>
+    var parent = document.getElementById("parent");
+    var p = document.createElement("p");
+    var text = document.createTextNode("hello world");
+    p.appendChild(text);
+    console.log(p);
+    parent.appendChild(p);
+</script>
+</body>
+</html>

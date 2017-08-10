@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function a(){
+        console.log(1)
+    }
+    function b(){
+        console.log(2);
+    }
+
+
+    /*有弹性的解决方案*/
+    function addLoadEvent(func){
+        /*1.把window.onload事件的处理函数作为值，存入变量oldonload*/
+        var oldonload= window.onload;
+        /*2.如果window.onload没有绑定任何函数，则给它添加新的函数*/
+        if( typeof window.onload !="function"){
+            window.onload=func;
+        }else{
+            window.onload=function(){
+                oldonload();
+                func();
+            }
+        }
+    }
+    addLoadEvent(a);
+    addLoadEvent(b);
+
+</script>
+</body>
+</html>

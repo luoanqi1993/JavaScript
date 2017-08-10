@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/base.js"></script>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            background-color: red;
+        }
+        .click{
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="test" class="one">
+
+</div>
+<script>
+var test=document.getElementById("test");
+    test.onclick=function(){
+        console.log(1);
+        /*给当前元素增加一个class属性*/
+        addClass(this,"click")
+    };
+    function addClass(element,value){
+        if(!element.className){
+            element.className = value;
+        }else{
+            var newClassName = element.className;
+            newClassName += " ";
+            newClassName += value ;
+            element.className = newClassName;
+        }
+    }
+
+</script>
+</body>
+</html>

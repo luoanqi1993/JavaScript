@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p id="p">Whee!</p>
+<p id="p2">Whoa!</p>
+</body>
+<script src="js/addLoadEvent.js"></script>
+<script src="js/moveElement.js"></script>
+<script>
+    function position(){
+        var elem = document.getElementById("p");
+        elem.style.position = "absolute";
+        elem.style.left = "50px";
+        elem.style.top = "100px";
+        moveElement("p",125,25,20);
+        var p = document.getElementById("p2");
+        p.style.position = "absolute";
+        p.style.left = "50px";
+        p.style.top = "50px";
+        moveElement("p2",125,125,10);
+    }
+    addLoadEvent(position);
+
+
+</script>
+
+</html>

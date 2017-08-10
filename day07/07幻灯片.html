@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/base.js"></script>
+    <script src="js/moveElement.js"></script>
+    <style>
+        #show{
+            width: 247px;
+            height: 350px;
+            position: relative;
+            overflow: hidden;
+        }
+        #pic{
+            position: absolute;
+            border-width: 0;
+            outline-width: 0;
+        }
+        #frame{
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 99;
+        }
+    </style>
+</head>
+<body>
+<ul>
+    <li><a href="01表格DOM.html">Home</a></li>
+    <li><a href="02css-dom.html">About</a></li>
+    <li><a href="03.图片动画.html">Photos</a></li>
+    <li><a href="04Html5.html">Live</a></li>
+</ul>
+<p id="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+    Adipisci alias culpa doloremque, earum hic optio veniam. Asperiores,
+    debitis dignissimos harum laborum, natus nostrum nulla quia quod reiciendis repellat similique totam.
+</p>
+<!--<div id="show">-->
+    <!--<img src="images/image_one.jpg" alt="" id="pic"/>-->
+<!--</div>-->
+</body>
+<script>
+    function prepareSlideshow(){
+        if(!document.getElementById("intro"))return false;
+        var intro = document.getElementById("intro");
+        var div = document.createElement("div");
+        div.setAttribute("id","show");
+
+        var frame = document.createElement()
+
+        var img = document.createElement("img");
+        img.setAttribute("id","pic");
+        img.setAttribute("src","images/image_one.jpg");
+        img.setAttribute("alt","prepare show");
+        div.appendChild(img);
+        insertAfter(div,intro);
+
+        var link = document.getElementsByTagName("a");
+        var rows;
+        for(key in link){
+            link[key].onmousemove = function(){
+                rows = this.getAttribute("href");
+                if(rows.indexOf("01表格DOM.html")!= -1){
+                    moveElement("pic",0,0,5)
+                }
+                if(rows.indexOf("02css-dom.html")!= -1){
+                    moveElement("pic",-247,0,5)
+                }
+                if(rows.indexOf("03.图片动画.html")!= -1){
+                    moveElement("pic",-494,0,5)
+                }
+                if(rows.indexOf("04Html5.html")!= -1){
+                    moveElement("pic",-741,0,5)
+                }
+            }
+        }
+    }
+    prepareSlideshow();
+</script>
+</html>

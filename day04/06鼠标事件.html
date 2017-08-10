@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div{
+            width: 100px;
+            line-height: 100px;
+            background-color: pink;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+    我是谁
+</div>
+<script>
+    var div = document.getElementById("div");
+//    鼠标进出事件
+//    div.onmouseover = function(){
+//        this.innerHTML="安琪";
+//    };
+//    div.onmouseout = function(){
+//      this.innerHTML="我是谁";
+//        this.style.backgroundColor="red";
+//    }
+
+//    鼠标点击or起来事件
+    div.onmousedown = function () {
+        this.style.backgroundColor="red";
+        this.innerHTML="安琪"
+    };
+    div.onmouseup = function(){
+        this.style.backgroundColor="pink";
+        this.innerHTML="我是谁"
+    }
+</script>
+</body>
+</html>

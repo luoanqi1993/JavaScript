@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="js/base.js"></script>
+    <style>
+        .one{
+            width:100px;
+            height:100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div class="one" id="msg">
+    
+</div>
+<script>
+    function moveMessage(){
+        var elem = document.getElementById("msg");
+        var xpos = parseInt(elem.style.left);
+        var ypos = parseInt(elem.style.top);
+        if(xpos==200 && ypos==100){
+            return false;
+        }
+        if(xpos<200){
+            xpos++;
+        }
+        if(xpos>200){
+            xpos--;
+        }
+        if(ypos<100){
+            ypos++;
+        }
+        if(ypos>100){
+            ypos--;
+        }
+        elem.style.left=xpos+"px";
+        elem.style.top=ypos+"px";
+        movement=setTimeout("moveMessage()",10)
+    }
+
+    function positionMessage(){
+        var elem = document.getElementById("msg");
+        elem.style.cssText="position:absolute;left:50px;top:100px";
+        movement=setTimeout("moveMessage()",1000)
+    }
+    addLoadEvent(positionMessage)
+
+</script>
+</body>
+</html>

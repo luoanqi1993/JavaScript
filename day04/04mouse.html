@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            line-height: 100px;
+            text-align: center;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+<div id="div">
+   是
+</div>
+<script>
+    var div = document.getElementById("div");
+    div.onmouseover=function(){
+        this.innerHTML="否";
+    };
+    div.onmouseout=function(){
+        this.innerHTML="是";
+    }
+</script>
+</body>
+</html>

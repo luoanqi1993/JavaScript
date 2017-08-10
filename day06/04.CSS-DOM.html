@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<h1>Hold the front page</h1>
+<p>This first paragraph leads you in.</p>
+<p>Ab assumenda cumque deserunt doloremque.</p>
+<p>Maiores natus neque odit optio perferendis.</p>
+<h1>Extra! Extra!</h1>
+<p>Consectetur adipisicing elit.</p>
+<p>Praesentium rerum sapiente!</p>
+</body>
+<script>
+    function getNexElement(node){
+        if(node.nodeType == 1){
+            return node;
+        }
+//       下一个元素节点
+        if(node.nextSibling){
+            return getNexElement(node.nextSibling);
+        }
+        return null;
+    }
+
+    function styleHeaderSibling(){
+        var headers = document.getElementsByTagName("h1");
+        var elem;
+        for(var i=0;i<headers.length;i++){
+            elem = getNexElement(headers[i].nextSibling);
+            elem.style.fontWeight = "bold";
+            elem.style.fontSize = "1.2em";
+        }
+    }
+    styleHeaderSibling();
+
+
+
+</script>
+</html>
