@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    var person = (function(){
+//        var age = 24;
+//        return{
+//            name:"Anqi",
+//            getAge:function(){
+//                return age;
+//            },
+//            growOlder:function(){
+//                age++;
+//            }
+//        }
+//    }());
+
+    var person = (function(){
+        var age = 24;
+
+        function getAge(){
+                return age;
+            }
+        function growOlder(){
+                age++;
+            }
+        return{
+            name:"Anqi",
+            getAge:getAge,
+            growOlder:growOlder
+        };
+    }());
+
+    console.log(person.name);
+    console.log(person.getAge());
+
+    person.age = 100;
+    console.log(person.getAge());
+
+    person.growOlder();
+    console.log(person.getAge());
+
+
+</script>
+</body>
+</html>

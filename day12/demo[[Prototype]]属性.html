@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var object = {};
+    console.log(object.toString());
+
+    object.toString = function(){
+        return "[object Custom]"
+    };
+    console.log(object.toString());
+
+    delete object.toString;
+    console.log(object.toString());
+    /*
+    * 自有属性会覆盖原型属性
+    * delete 仅对自有属性起作用，无法删除对象的原型属性
+    *
+    * 无法给一个对象的原型属性赋值
+    * */
+</script>
+</body>
+</html>

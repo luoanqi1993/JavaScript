@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*构造函数就是用 new 创建对象是调用的函数。*/
+    function Person(){
+//       构造函数的区别就是函数名首字母大写
+    }
+
+    var person1 = new Person();
+    var person2 = new Person();
+
+    console.log(person1 instanceof Person);    //true
+    console.log(person2 instanceof Person);    //true
+
+    console.log(person1.constructor === Person);    //true
+    console.log(person2.constructor === Person);    //true
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var Person = (function(){
+        var age = 25;
+
+        function InnerPerson(name){
+            this.name = name;
+        }
+        InnerPerson.prototype.getAge = function(){
+            return age;
+        };
+        InnerPerson.prototype.growOlder = function(){
+            age++;
+        };
+        return InnerPerson;
+    }());
+
+    var anqi = new Person("Anqi");
+    console.log(anqi.name);
+    console.log(anqi.getAge());
+    anqi.growOlder();
+    console.log(anqi.getAge());
+</script>
+</body>
+</html>

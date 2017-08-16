@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var Anqi = {
+        name:"Anqi"
+    };
+    var mm = Object.getOwnPropertyDescriptor(Anqi,"name");
+
+    console.log(mm.enumerable);
+    console.log(mm.configurable);
+    console.log(mm.writable);
+    console.log(mm.value);
+</script>
+</body>
+</html>

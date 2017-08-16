@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    var arr=[1,2,3];
+    var object = {};
+    function anqi(){
+
+
+    }
+//     鉴别引用类型
+    console.log(anqi instanceof Function); //true
+    console.log(anqi instanceof Object);  //true
+    console.log(object instanceof Object);  //true
+    console.log(object instanceof Array);  // false
+    console.log(arr instanceof Object);  //true
+    console.log(arr instanceof Array);   //true
+
+
+//    鉴别数组
+    console.log(Array.isArray(arr))
+</script>
+</body>
+</html>

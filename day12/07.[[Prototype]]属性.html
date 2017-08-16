@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var objece = {};
+    var prototype = Object.getPrototypeOf(objece);
+//      getPrototypeOf()方法读取属性的值
+
+    console.log(prototype === Object.prototype);
+
+    console.log(Object.prototype.isPrototypeOf(objece));
+//      isPrototypeOf()方法检查对象是否是另一个对象的原型对象
+
+</script>
+</body>
+</html>

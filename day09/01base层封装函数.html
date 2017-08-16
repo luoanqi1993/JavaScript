@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li id="item1"></li>
+    <li id="item2"></li>
+    <li id="item3"></li>
+</ul>
+</body>
+<script src="javaScript/base.js"></script>
+<script>
+    var nextNode = GLOBAL.Dom.getNextNode("item1");
+    GLOBAL.Dom.get("item1");
+    alert(nextNode.id);
+    var nextNode2 = GLOBAL.Dom.getNextNode("item2");
+    GLOBAL.Dom.get("item2");
+    alert(nextNode2.id);
+</script>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+//    function aa(value){
+//        return value;
+//    }
+//    aa = function(){
+//        return arguments[0];
+//    };
+//    console.log(aa("Hi!"));
+//    console.log(aa("Hi!",25));
+//    console.log(aa.length);
+
+    function sum(){
+        var result = 0,
+                i = 0,
+                len = arguments.length;
+        while(i<len){
+            result += arguments[i];
+            i++;
+        }
+        return result;
+    }
+
+    console.log(sum(1,2));
+    console.log(sum(3,4,5,6));
+    console.log(sum(50));
+    console.log(sum());
+</script>
+</body>
+</html>

@@ -5,13 +5,11 @@
 var GLOBAL = {};
 
 GLOBAL.namespace=function(str){
-    /*1.将字符串分隔成数组*/
+
     var arr=str.split("."),o=GLOBAL;
-    /*2.对数组进行遍历*/
+
     for(i=(arr[0]=="GLOBAL")? 1:0; i<arr.length; i++){
-        /*3.将数组里的每一个值作为对象的属性
-         4.对象的每个属性值等于自身或者一个空对象
-         * */
+
         o[arr[i]]= o[arr[i]] || {};
 
         o=o[arr[i]];
@@ -243,27 +241,5 @@ GLOBAL.Lang.extend = function (subClass,superClass){
     if(superClass.prototype.constructor == Object.prototype.constructor){
         superClass.prototype.constructor = superClass;
     }
-};
-
-
-
-//数组Array相关
-GLOBAL.namespace("Array");
-
-//按顺序排列
-GLOBAL.Array.arraySort=function(arr){
-    arr.sort(function(a,b){
-        return a-b;
-    })
-};
-
-
-//数组 Object 相关
-GLOBAL.namespace("Object");
-
-//鉴别一个原型类型
-GLOBAL.Object.hasOwnProperty = function(object,name){
-    return name in object && !object.hasOwnProperty(name);
-       // 如果返回false，那么这个属性就是一个原型属性。
 };
 

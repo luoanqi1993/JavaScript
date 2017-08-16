@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function say(label){
+        console.log(label+":"+this.name)
+    }
+    var name = "Mike";
+    var Anqi={
+        name:"罗安琪"
+    };
+    var CC={
+        name:"程超"
+    };
+    var b =say.bind(Anqi,"Global");
+    b();
+</script>
+</body>
+</html>

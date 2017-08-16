@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #parent {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+
+        #child {
+            width: 50px;
+            height: 50px;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+<div id="parent">
+    <div id="child">
+
+    </div>
+</div>
+<script>
+    var parent = document.getElementById("parent");
+    var child = document.getElementById("child");
+    parent.onclick = function (e) {
+        console.log(1);
+        this.style.width = "200px";
+        e = window.event ||e;
+        e.stopPropagation();
+    };
+    child.onclick = function (e) {
+        this.style.backgroundColor = "pink";
+        /*阻止事件冒泡*/
+        e = window.event ||e;
+        if(document.all){
+            e.cancelBubble=true;
+        }else{
+            e.stopPropagation();
+        }
+    }
+</script>
+</body>
+</html>

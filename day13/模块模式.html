@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var person =(function(){
+        var age=25;
+        return{
+            name:"Anqi",
+            getAge:function(){
+                return age;
+            },
+            setAge:function(value){
+                age=value
+            }
+        }
+    })();
+    person.setAge(20);
+    console.log(person.getAge())
+</script>
+</body>
+</html>

@@ -257,6 +257,13 @@ GLOBAL.Array.arraySort=function(arr){
     })
 };
 
+//在数组上添加新的方法
+GLOBAL.Array.sun = function(number){
+  return number.reduce(function(previous,current){
+      return previous + current;
+  })
+};
+
 
 //数组 Object 相关
 GLOBAL.namespace("Object");

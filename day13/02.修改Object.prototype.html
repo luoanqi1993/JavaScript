@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    Object.prototype.add = function(value){
+        return this + value;
+    };
+    var book = {
+        title:"hello world"
+    };
+    console.log(book.add(5));
+    console.log("title".add("end"));
+</script>
+</body>
+</html>

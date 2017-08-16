@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var Anqi = {};
+    Object.defineProperties(Anqi,{
+        _name:{
+            value:"luoanqi",
+            enumerable:true,
+            configurable:true,
+            writable:true
+        },
+        name:{
+            get:function(){
+                return this._name;
+            },
+            set:function(value){
+                this._name = value;
+            },
+            enumerable:true,
+            configurable:true
+        }
+    });
+    Anqi.name="chengchao";
+    console.log(Anqi.name)
+</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*所有实例共享私有数据*/
+    var Person = (function(){
+        var age=25;
+        function InnerPerson(name){
+            this.name = name;
+        }
+        InnerPerson.prototype.getAge=function(){
+            return age;
+        };
+        InnerPerson.prototype.setAge=function(value){
+            age=value;
+        };
+        return InnerPerson;
+    })();
+    var Anqi = new Person("anqi");
+    Anqi.setAge(26);
+    console.log(Anqi.getAge());
+</script>
+</body>
+</html>

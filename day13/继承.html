@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Person(name,age,value){
+        this.name=name;
+        this.age=age;
+        this.sex=value;
+    }
+    Person.prototype.say=function(){
+        console.log(this.name+":"+this.age)
+    };
+    function Student(name,age,value){
+        Person.call(this,name,age,value);
+
+    }
+    Student.prototype=new Person();
+    Student.prototype.constructor = Student;
+    Student.prototype.say = function(){
+      Person.prototype.say.call(this);
+    };
+    var Anqi = new Student("罗安琪",5);
+    console.log(Anqi.say())
+</script>
+</body>
+</html>

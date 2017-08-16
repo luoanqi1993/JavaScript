@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Person(name){
+        if(this instanceof Person){
+            this.name = name;
+        }else{
+            return new Person(name);
+        }
+    }
+    Person.prototype.sayName=function(){
+        console.log(this.name)
+    };
+    var Anqi =Person("罗安琪");
+
+    console.log(Anqi instanceof  Person);
+    console.log(typeof Anqi);
+</script>
+</body>
+</html>

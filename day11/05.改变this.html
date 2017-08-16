@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //  call 方法
+    function sayNameForAll(lable){
+        console.log(lable + ":" + this.name);
+    }
+    var a = {
+        name:"anan"
+    };
+    var b = {
+        name:"anqi"
+    };
+//    var name = "luoanqi";
+
+//    call 方法
+//    sayNameForAll.call(this,"golbal");
+//    sayNameForAll.call(a,"a");
+//    sayNameForAll.call(b,"b");
+
+//    apply 方法
+//    sayNameForAll.apply(this,["global"]);
+//    sayNameForAll.apply(a,["a"]);
+//    sayNameForAll.apply(b,["b"]);
+
+//    bind() 方法
+    var sayNameFora1 = sayNameForAll.bind(a);
+    sayNameFora1("a");
+
+    var sayNameForb1 = sayNameForAll.bind(b,"b");
+    sayNameForb1();
+
+    b.sayName = sayNameFora1;
+    b.sayName("b");
+
+    // 如果你有一个数字用 apply() 方法 ，如果你只有一个个单独的变量 用call()方法
+</script>
+</body>
+</html>

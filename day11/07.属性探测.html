@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var person1 = {
+        name : "anqi"
+    };
+    var person2 = new Object();
+    person2.name = "aaa";
+
+    person1.age = "24";
+    person2.age = "24";
+
+    person1.name = "bbb";
+    person2.name = "ccc";
+
+    if(person1.age){
+
+    }
+//    用 in 操作符可以查找是否存在对应的属性
+    console.log("name" in person1);
+    console.log("age" in person1);
+    console.log("title" in person1);
+//    用hasOwnProperty方法查找是否有其他属性
+    console.log(person1.hasOwnProperty("toString"));
+
+</script>
+</body>
+</html>

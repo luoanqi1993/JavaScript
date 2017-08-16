@@ -6,13 +6,13 @@
 </head>
 <body>
 <script>
-    var anqi = {};
-    anqi.name="anqi";
-    anqi.age="24";
-    console.log(anqi);
-
-
+    function a(){
+        console.log(this)
+    }
+    function b(){
+        a();
+    }
+    b();
 </script>
-
 </body>
 </html>

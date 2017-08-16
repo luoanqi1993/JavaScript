@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var person = (function(){
+        /*私有*/
+        var age=25;
+        function getAge(){
+            return age;
+        }
+        function setAge(value){
+            age=value;
+        }
+        return{
+            /*共有的*/
+            name :"Anqi",
+            getAge:getAge,
+            setAge:setAge
+        }
+    })();
+</script>
+</body>
+</html>

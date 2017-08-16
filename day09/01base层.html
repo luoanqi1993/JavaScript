@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<ul>
+    <li id="item1"></li>
+    <li id="item2"></li>
+    <li id="item3"></li>
+</ul>
+</body>
+<script>
+    var item1 = document.getElementById("item1");
+    var nextNode = item1.nextSibling;
+//    Firefox 支持 document.all 这里用以判别浏览器的类型
+    if(!document.all){
+        while(true){
+            if(nextNode.nodeType == 1){
+                break
+            }else {
+                if(nextNode.nextSibling){
+                    nextNode = nextNode.nextSibling;
+                }else{
+                    break;
+                }
+            }
+        }
+    }
+    alert(nextNode.id);
+
+    var item2 = document.getElementById("item2");
+    var nextNode2 = item2.nextSibling;
+    //    Firefox 支持 document.all 这里用以判别浏览器的类型
+    if(!document.all){
+        while(true){
+            if(nextNode2.nodeType == 1){
+                break
+            }else {
+                if(nextNode2.nextSibling){
+                    nextNode2 = nextNode2.nextSibling;
+                }else{
+                    break;
+                }
+            }
+        }
+    }
+    alert(nextNode.id);
+//    alert(item1.nextSibling.nodeType);  弹出 类型为文本节点3
+//    alert(document.getElementsByTagName("ul")[0].childNodes.length);   弹出ul的全部子节点 7
+</script>
+</html>

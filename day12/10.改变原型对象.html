@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Person(name){
+        this.name = name;
+    }
+    Person.prototype = {
+
+//    重置constructor 属性
+        constructor:Person,
+
+        sayName:function(){
+            console.log(this.name);
+        },
+        toString:function(){
+            return "[Person"+ this.name +"]";
+        }
+    };
+
+    var person1 = new Person("Anqi");
+    var person2 = new Person("mingming");
+
+    console.log("sayHi" in person1);
+    console.log("sayHi" in person2);
+
+    Person.prototype.sayHi = function(){
+        console.log("Hi");
+    };
+
+    person1.sayHi();
+    person2.sayHi();
+</script>
+</body>
+</html>

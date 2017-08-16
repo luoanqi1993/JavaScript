@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //默认调用 [[Put]] 方法 用 [[Set]] 覆盖已有的属性值
+    var person1 = {
+        name : "aaa"
+    };
+    var person2 = new Object();
+    person2.name = "aaa";
+
+    person1.age = "24";
+    person2.age = "24";
+
+    person1.name = "bbb";
+    person2.name = "ccc";
+
+    console.log(person2);
+</script>
+</body>
+</html>

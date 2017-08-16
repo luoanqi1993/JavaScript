@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var person = {
+        name:"anqi"
+    };
+
+    Object.defineProperty(person,"name",{
+        enumerable:false
+    });
+    console.log("name" in person);
+    console.log(person.propertyIsEnumerable("name"));
+
+    var properties = Object.keys(person);
+    console.log(properties.length);
+
+    Object.defineProperty(person,"name",{
+        configurable:false
+    });
+
+    delete person.name;
+    console.log("name" in person);
+    console.log(person.name);
+
+    Object.defineProperty(person,"name",{
+        configurable:true
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*在构造函数中定义私有数据*/
+    function Person(name){
+        //私有
+        var age;
+        this.getAge = function(){
+            return age;
+        };
+        this.setAge = function(value){
+            age = value;
+        };
+
+        this.name=name;
+    }
+    var anqi = new Person("Anqi");
+    anqi.setAge(24);
+    console.log(anqi.getAge())
+</script>
+</body>
+</html>

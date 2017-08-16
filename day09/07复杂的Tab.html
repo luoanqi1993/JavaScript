@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        body{
+            margin: 50px auto;
+            width: 800px;
+        }
+        ul{list-style: none;}
+        .tab{
+            width: 600px;
+            margin: 40px;
+        }
+        .tab-menu{
+            padding-left: 20px;
+        }
+        .tab-menu li{
+            float: left;
+            display: inline;
+            padding: 5px;
+            border: 1px solid #333;
+            border-bottom: none;
+            margin-right: 5px;
+        }
+        .tab-content{
+            border: 1px solid #333;
+            clear: both;
+            padding: 5px;
+        }
+        .tab .tab-currentMenu{
+            background-color: #333;
+            color: #fff;
+        }
+        .tab .tab-currentMenu2{
+            background-color: blue;
+            color: #fff;
+        }
+        .aa{
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+<div class="tab J_tab">
+    <ul class="tab-menu">
+        <li class="J_tab-menu">menu1</li>
+        <li class="J_tab-menu">menu2</li>
+        <li class="J_tab-menu">menu3</li>
+    </ul>
+    <div class="tab-content">
+        <div class="J_tab-content"><div>content1</div><ul><li>abc</li></ul></div>
+        <div class="J_tab-content" style="display: none"><p>content2</p><div>abc</div></div>
+        <div class="J_tab-content" style="display: none">content3</div>
+    </div>
+</div>
+<div class="tab J_tab">
+    <ul class="tab-menu">
+        <li class="J_tab-menu tab-currentMenu">menu2-1</li>
+        <li class="J_tab-menu aa">menu2-2</li>
+    </ul>
+    <div class="tab-content">
+        <div class="J_tab-content"><div>content2-1</div><ul><li>abc</li></ul></div>
+        <div class="J_tab-content" style="display: none"><p>content2-2</p><div>abc</div></div>
+    </div>
+</div>
+<div class="tab J_tab">
+    <ul class="tab-menu">
+        <li class="J_tab-menu tab-currentMenu2">menu3-1</li>
+        <li class="J_tab-menu">menu3-2</li>
+        <li class="J_tab-menu">menu3-3</li>
+        <li class="J_tab-menu">menu3-4</li>
+        <li class="J_tab-menu">menu3-5</li>
+    </ul>
+    <div class="tab-content">
+        <div class="J_tab-content"><div>content3-1</div><ul><li>abc</li></ul></div>
+        <div class="J_tab-content" style="display: none"><p>content3-2</p><div>abc</div></div>
+        <div class="J_tab-content" style="display: none">content3-3</div>
+        <div class="J_tab-content" style="display: none"><p>content3-4</p><div>abc</div></div>
+        <div class="J_tab-content" style="display: none">content3-5</div>
+    </div>
+</div>
+</body>
+<script src="javaScript/base.js"></script>
+<script>
+
+    function setTab(root,currentClass,trigger){
+        var tabMenu = GLOBAL.Dom.getElementsByClassName("J_tab-menu",root),
+        tabContent = GLOBAL.Dom.getElementsByClassName("J_tab-content",root);
+
+//        如果不传入激活类型，默认类型为点击
+        trigger = trigger || "click";
+
+        for(var i=0;i<tabMenu.length;i++){
+            tabMenu[i]._index = i;
+            GLOBAL.Event.on(tabMenu[i],trigger,function(){
+                for (var j = 0; j < tabContent.length; j++) {
+                    tabContent[j].style.display = "none";
+                }
+                tabContent[this._index].style.display = "block";
+//                如果有当前选中标签，则去掉 “tab-currentMenu”
+                if (currentClass) {
+                    var currentMenu = GLOBAL.Dom.getElementsByClassName(currentClass, root)[0];
+                    if (currentMenu) {
+                        GLOBAL.Dom.removeClass(currentMenu, currentClass)
+                    }
+//                给当前被点击的按钮挂上当前选中的 class
+                    GLOBAL.Dom.addClass(this, currentClass);
+                }
+            });
+        }
+    }
+    var tabs = GLOBAL.Dom.getElementsByClassName("J_tab");
+//    for(var i=0;i<tabs.length;i++){
+//        setTab(tabs[i]);
+//    }
+    setTab(tabs[0],null,"mouseover");
+    setTab(tabs[1],"tab-currentMenu");
+    setTab(tabs[2],"tab-currentMenu2","mouseover");
+</script>
+</html>
+

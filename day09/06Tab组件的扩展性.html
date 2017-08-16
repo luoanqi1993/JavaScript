@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        body{
+            margin: 50px auto;
+            width: 800px;
+        }
+        ul{list-style: none;}
+        .tab{
+            width: 400px;
+        }
+        .tab-menu{
+            padding-left: 20px;
+        }
+        .tab-menu li{
+            float: left;
+            display: inline;
+            padding: 5px;
+            border: 1px solid #333;
+            border-bottom: none;
+            margin-right: 5px;
+        }
+        .tab-content{
+            border: 1px solid #333;
+            clear: both;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="tab">
+    <ul class="tab-menu" id="tab-menu">
+        <li>menu1</li>
+        <li>menu2</li>
+        <li>menu3</li>
+        <li>menu4</li>
+    </ul>
+    <div class="tab-content" id="tab-content">
+        <div>content1</div>
+        <div style="display: none">content2</div>
+        <div style="display: none">content3</div>
+        <div style="display: none">content4</div>
+    </div>
+</div>
+</body>
+<script>
+    var tabMenu = document.getElementById("tab-menu").getElementsByTagName("li"),
+            tabContent = document.getElementById("tab-content").getElementsByTagName("div");
+
+//    两种解决for循环的Bug
+//    1.利用命名空间闭包
+    for(var i=0;i<tabMenu.length;i++){
+        (function(_i){
+            tabMenu[_i].onclick = function(){
+    //            遍历数组，隐藏所有 tabContent
+                for(var j=0;j<tabContent.length;j++){
+                    tabContent[j].style.display = "none";
+                }
+                tabContent[_i].style.display = "block";
+            }
+        })(i);
+    }
+
+//     2.给DOM节点添加 _index 属性，属性等于索引
+//    for(var i=0;i<tabMenu.length;i++){
+//            tabMenu[i]._index=i;
+//            tabMenu[i].onclick = function(){
+//                //            遍历数组，隐藏所有 tabContent
+//                for(var j=0;j<tabContent.length;j++){
+//                    tabContent[j].style.display = "none";
+//                }
+//                tabContent[this._index].style.display = "block";
+//            }
+//    }
+
+</script>
+</html>

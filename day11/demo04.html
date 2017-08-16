@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        div{
+            width:100px;
+            height:100px;
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+<div id="test">
+
+</div>
+<script>
+    var test = document.getElementById("test");
+    /*在事件中,this指向执行事件的对象*/
+    test.onclick=function(){
+        this.style.background="pink"
+    }
+</script>
+</body>
+</html>

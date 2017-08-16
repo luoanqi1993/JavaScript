@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        body{
+            margin: 50px auto;
+            width: 800px;
+        }
+        ul{list-style: none;}
+        .tab{
+            width: 400px;
+        }
+        .tab-menu{
+            padding-left: 20px;
+        }
+        .tab-menu li{
+            float: left;
+            display: inline;
+            padding: 5px;
+            border: 1px solid #333;
+            border-bottom: none;
+            margin-right: 5px;
+        }
+        .tab-content{
+            border: 1px solid #333;
+            clear: both;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="tab">
+    <ul class="tab-menu">
+        <li id="tab-menu1">menu1</li>
+        <li id="tab-menu2">menu2</li>
+        <li id="tab-menu3">menu3</li>
+    </ul>
+    <div class="tab-content">
+        <div id="tab-content1">content1</div>
+        <div id="tab-content2" style="display: none">content2</div>
+        <div id="tab-content3" style="display: none">content3</div>
+    </div>
+</div>
+</body>
+<script src="javaScript/base.js"></script>
+<script>
+    var tabMenu1 = GLOBAL.Dom.get("tab-menu1");
+    var tabMenu2 = GLOBAL.Dom.get("tab-menu2");
+    var tabMenu3 = GLOBAL.Dom.get("tab-menu3");
+    var content1 = GLOBAL.Dom.get("tab-content1");
+    var content2 = GLOBAL.Dom.get("tab-content2");
+    var content3 = GLOBAL.Dom.get("tab-content3");
+
+    GLOBAL.Event.on(tabMenu1,"click",function(){
+        content1.style.display="block";
+        content2.style.display="none";
+        content3.style.display="none";
+    });
+    GLOBAL.Event.on(tabMenu2,"click",function(){
+        content1.style.display="none";
+        content2.style.display="block";
+        content3.style.display="none";
+    });
+    GLOBAL.Event.on(tabMenu3,"click",function(){
+        content1.style.display="none";
+        content2.style.display="none";
+        content3.style.display="block";
+    })
+</script>
+</html>

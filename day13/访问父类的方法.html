@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function Rectangle(length,width){
+        this.length = length;
+        this.width = width;
+    }
+    Rectangle.prototype.getArea = function(){
+        return this.length*this.width
+    };
+    Rectangle.prototype.toString = function(){
+        return "[Rectangle"+this.length+":"+this.width+"]";
+    };
+    function Square(size){
+        Rectangle.call(this,size,size)
+    }
+    Square.prototype = Object.create(Rectangle.prototype,{
+        constructor:{
+            configurable:true,
+            enumerable:true,
+            writable:true,
+            value:Square
+        }
+    });
+    Square.prototype.toString = function(){
+        var text=  Rectangle.prototype.toString.call(this);
+        return text.replace("Rectangle","Square");
+  };
+    var a = new Square(5);
+    console.log(a.toString())
+</script>
+</body>
+</html>

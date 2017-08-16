@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*this*/
+    function say(){
+        console.log(this.name);
+    }
+    var name="jake";
+    /*函数直接调用，this指向window*/
+    say();
+
+</script>
+</body>
+</html>

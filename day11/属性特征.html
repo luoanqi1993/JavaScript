@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var Anqi = {
+        name:"Anqi"
+    };
+    Object.defineProperty(Anqi,"name",{
+        enumerable:false
+    });
+    Object.defineProperty(Anqi,"name",{
+        //不可配置的属性,不能用delete删除
+        configurable:true
+    });
+    delete Anqi.name;
+    console.log("name" in Anqi)
+
+</script>
+</body>
+</html>

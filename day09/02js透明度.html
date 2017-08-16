@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #test1{
+            background-color: red;height: 100px;
+        }
+        #test2{
+            background-color: blue;height: 100px;
+        }
+    </style>
+</head>
+<body>
+<div id="test1"></div>
+<div id="test2"></div>
+</body>
+<script>
+    var test1 = document.getElementById("test1");
+    var test2 = document.getElementById("test2");
+    if(document.all){
+        test1.style.filter = 'alpha(opacity=20)';
+        test2.style.filter = 'alpha(opacity=80)';
+    }else{
+        test1.style.opacity = 0.2;
+        test2.style.opacity = 0.8;
+    }
+</script>
+</html>
